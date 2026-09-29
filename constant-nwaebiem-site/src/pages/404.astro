@@ -1,0 +1,16 @@
+---
+import Base from '../layouts/Base.astro';
+import Nav from '../components/Nav.astro';
+import site from '../content/site.json';
+---
+<Base title={`Page not found · ${site.name}`} noindex>
+  <Nav />
+  <main class="sec" style="border-top:0;min-height:70vh">
+    <div class="wrap">
+      <p class="eyebrow">Error 404</p>
+      <h1 class="display h2">This page doesn’t exist<span class="dot">.</span></h1>
+      <p class="lede" style="margin-top:24px">The link may be out of date. Everything lives on the home page.</p>
+      <div class="btns" style="margin-top:32px"><a class="btn btn--ink" href="/">Back to home</a></div>
+    </div>
+  </main>
+</Base>

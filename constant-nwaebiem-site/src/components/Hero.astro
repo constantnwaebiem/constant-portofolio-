@@ -1,0 +1,51 @@
+---
+import { Image } from 'astro:assets';
+import portrait from '../assets/portrait.jpg';
+import site from '../content/site.json';
+import { rich } from '../lib/format';
+import { ICONS } from '../lib/icons';
+
+const [first, last] = [site.firstName, site.lastName];
+const badgeClass = ['badge--a', 'badge--b', 'badge--c'];
+---
+<section class="hero" id="home" aria-label="Introduction">
+  <div class="wrap">
+    <div class="hero-grid">
+      <div class="hero-media">
+        <div class="portrait">
+          <Image
+            src={portrait}
+            alt={site.portraitAlt}
+            widths={[400, 600, 800, 1080]}
+            sizes="(min-width: 1000px) 420px, 78vw"
+            loading="eager"
+            fetchpriority="high"
+          />
+          <div class="portrait-cap"><span class="mono">{site.portraitCaption}</span><span class="mono">{site.portraitCoords}</span></div>
+        </div>
+        {site.badges.slice(0, 3).map((b, i) => (
+          <div class={`badge ${badgeClass[i]}`}><b>{b.title}</b><span>{b.subtitle}</span></div>
+        ))}
+      </div>
+
+      <div class="hero-copy">
+        <span class="pill"><i></i>{site.availability} <span class="pill-sub">· {site.availabilityDetail}</span></span>
+        <h1 class="display name"><span class="ln"><span>{first}</span></span><span class="ln"><span>{last}</span></span></h1>
+        <p class="tagline">{site.tagline.map((t) => <span>{t}</span>)}</p>
+        <div class="rule" aria-hidden="true"></div>
+        <p class="lede" set:html={rich(site.intro)} />
+        <div class="btns">
+          <a class="btn btn--ink" href="#contact">Let’s Connect <Fragment set:html={ICONS.arrow} /></a>
+          {site.cv && <a class="btn" href={site.cv} target="_blank" rel="noopener"><Fragment set:html={ICONS.download} />Download CV</a>}
+          {site.linkedin && <a class="btn" href={site.linkedin} target="_blank" rel="noopener me">LinkedIn</a>}
+        </div>
+      </div>
+    </div>
+
+    <dl class="stats" id="stats">
+      {site.stats.map((s) => (
+        <div><dt>{s.label}</dt><dd data-count={s.value} data-suffix={s.suffix}>{s.value}{s.suffix}</dd></div>
+      ))}
+    </dl>
+  </div>
+</section>

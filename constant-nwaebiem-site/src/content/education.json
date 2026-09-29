@@ -1,0 +1,41 @@
+{
+  "schools": [
+    {
+      "tile": "LSBU",
+      "dates": "Sep 2023 – Jun 2026",
+      "title": "BSc (Hons) Economics with Finance",
+      "organisation": "London South Bank University",
+      "chips": [
+        "Corporate Finance & Risk Management",
+        "Financial Decision Making",
+        "Macroeconomic Modelling",
+        "Economic Project",
+        "Bloomberg Terminal"
+      ]
+    },
+    {
+      "tile": "MSFC",
+      "dates": "A-levels",
+      "title": "Monoux Sixth Form College",
+      "organisation": "Economics · Geography · Religion",
+      "chips": []
+    }
+  ],
+  "certifications": [
+    {
+      "issuer": "Microsoft",
+      "title": "Microsoft Office Specialist: Excel",
+      "detail": "Certified · 2026"
+    },
+    {
+      "issuer": "Bloomberg",
+      "title": "Bloomberg Global Trading Challenge",
+      "detail": "Competition · 2026"
+    },
+    {
+      "issuer": "Power BI",
+      "title": "Data Analysis on Power BI",
+      "detail": "Certified · 2025"
+    }
+  ]
+}

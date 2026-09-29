@@ -1,0 +1,30 @@
+---
+import education from '../content/education.json';
+---
+<section class="sec" id="education" aria-labelledby="edu-h">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <p class="eyebrow">Academic background</p>
+      <h2 class="display h2" id="edu-h">Education &amp; Credentials<span class="dot">.</span></h2>
+    </div>
+    <div class="edu-grid">
+      {education.schools.map((e) => (
+        <article class="card edu rv">
+          <span class="edu-tile">{e.tile}</span>
+          <div>
+            <div class="edu-when">{e.dates}</div>
+            <h3>{e.title}</h3>
+            <p class="edu-org">{e.organisation}</p>
+            {e.chips.length > 0 && <ul class="chips">{e.chips.map((c) => <li class="chip">{c}</li>)}</ul>}
+          </div>
+        </article>
+      ))}
+    </div>
+    <p class="eyebrow sub-eyebrow">Certifications &amp; competitions</p>
+    <div class="certs">
+      {education.certifications.map((c) => (
+        <article class="card cert rv"><span class="mono">{c.issuer}</span><b>{c.title}</b><span>{c.detail}</span></article>
+      ))}
+    </div>
+  </div>
+</section>

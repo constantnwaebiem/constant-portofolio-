@@ -1,0 +1,73 @@
+{
+  "roles": [
+    {
+      "title": "Co-Founder",
+      "organisation": "NOX PRIVÉ",
+      "location": "Mayfair, London · International",
+      "dates": "Mar 2024 – Present",
+      "current": true,
+      "points": [
+        "Co-founded an international luxury nightlife concierge headquartered in Mayfair, connecting clients with premium tables, guest lists, curated events and artist experiences.",
+        "Built a network across eight cities: London, Paris, Milan, Marbella, Barcelona, Mykonos, Dubai and Lagos.",
+        "Manage the full client acquisition and events pipeline: guest list curation, VIP table bookings, deposit collection and retention follow-up.",
+        "Wrote campaign and promotional copy that boosted client bookings and sales by 30%.",
+        "Designed a prestige-first brand and content system across Instagram, TikTok and LinkedIn, supported by an ambassador programme."
+      ],
+      "tags": [
+        "Luxury Hospitality",
+        "Branding",
+        "Copywriting"
+      ]
+    },
+    {
+      "title": "Founder",
+      "organisation": "Domus Èquipe Italy ODV",
+      "location": "Turin, Italy",
+      "dates": "2026 – Present",
+      "current": true,
+      "points": [
+        "Founded a Turin-based voluntary organisation (ODV) that runs cultural, artistic, musical and social-recreational activities.",
+        "Manage the organisation’s music production."
+      ],
+      "tags": [
+        "Music Production",
+        "Arts & Culture",
+        "Community"
+      ]
+    },
+    {
+      "title": "Security Team Leader",
+      "organisation": "Achilleus Security",
+      "location": "London",
+      "dates": "Jan 2024 – Present",
+      "current": true,
+      "points": [
+        "Lead and coordinate security teams of 20+ across high-capacity venues, including multi-site staff scheduling.",
+        "Own compliance reporting against SIA and venue safety standards, alongside float, cash handling and stock control.",
+        "SIA-licensed Door Supervisor, pairing operational security with a guest-first hospitality approach."
+      ],
+      "tags": [
+        "Team Leadership",
+        "Compliance",
+        "Operations"
+      ]
+    },
+    {
+      "title": "Food & Beverage Service Expert",
+      "organisation": "Soho House",
+      "location": "London",
+      "dates": "Jan 2023 – Mar 2024",
+      "current": false,
+      "points": [
+        "Delivered food and beverage service to members and their guests at one of the world’s best-known private members’ clubs.",
+        "Built lasting relationships with members through discreet, personalised service.",
+        "Boosted sales by 20% by upselling to members and their guests."
+      ],
+      "tags": [
+        "Luxury Hospitality",
+        "Upselling",
+        "F&B Service"
+      ]
+    }
+  ]
+}

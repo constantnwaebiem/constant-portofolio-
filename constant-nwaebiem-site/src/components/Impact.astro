@@ -1,0 +1,24 @@
+---
+import impact from '../content/impact.json';
+---
+<section class="sec" id="impact" aria-labelledby="impact-h">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <p class="eyebrow">Impact metrics</p>
+      <h2 class="display h2" id="impact-h">Measured Impact<span class="dot">.</span></h2>
+    </div>
+    <div class="impact-grid">
+      {impact.items.map((m) => (
+        <article class:list={['card metric rv', { wide: m.wide }]}>
+          <span class="mono">{m.kicker}</span>
+          <div class="metric-num">
+            <span class="v" data-count={m.value} data-prefix={m.prefix} data-suffix={m.suffix}>{m.prefix}{m.value}{m.suffix}</span>
+            <small>{m.unit}</small>
+          </div>
+          <h3>{m.title}</h3>
+          <p>{m.text}</p>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>

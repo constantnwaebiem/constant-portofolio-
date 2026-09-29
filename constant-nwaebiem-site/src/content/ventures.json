@@ -1,0 +1,102 @@
+{
+  "items": [
+    {
+      "title": "Exchange Rates & the UK Trade Balance",
+      "category": "Economic research · UK",
+      "icon": "research",
+      "status": "Completed",
+      "active": false,
+      "featured": true,
+      "summary": "Did a weaker pound help UK goods trade between 2015 and 2025? A decade of monthly data, tested with robust econometrics.",
+      "points": [
+        "Brexit was the dominant driver of the deficit: −£6,117m a month (p<0.001), 18 times the currency effect.",
+        "Confirmed J-curve dynamics: the REER was insignificant at 0–1 months, with transmission peaking at six months (−£138m, p=0.017).",
+        "Cumulative long-run REER effect of −£443m a month (p<0.001), while COVID-19 was statistically absorbed (p=0.808).",
+        "Strong overall model fit: F(9,116) = 42.62."
+      ],
+      "tags": [
+        "Econometrics",
+        "Excel",
+        "Stata",
+        "Macroeconomics"
+      ]
+    },
+    {
+      "title": "NOX PRIVÉ",
+      "category": "Luxury nightlife · Hospitality",
+      "icon": "nox",
+      "status": "Active",
+      "active": true,
+      "featured": false,
+      "summary": "An international luxury nightlife concierge and connector, headquartered in Mayfair.",
+      "points": [
+        "An international network across London, Paris, Milan, Marbella, Barcelona, Mykonos, Dubai and Lagos.",
+        "Campaign and promotional copy that boosted client bookings and sales by 30%.",
+        "Contracted access at flagship London venues including Tape, Maddox, Cirque le Soir and Gallery.",
+        "A prestige-first brand system with a weekly content framework across Instagram, TikTok and LinkedIn."
+      ],
+      "tags": [
+        "Branding",
+        "Luxury hospitality",
+        "Partnerships",
+        "Community"
+      ]
+    },
+    {
+      "title": "Domus Èquipe Italy ODV",
+      "category": "Arts, culture & music · Turin",
+      "icon": "domus",
+      "status": "Active",
+      "active": true,
+      "featured": false,
+      "summary": "A Turin-based voluntary organisation for cultural, artistic, musical and social-recreational activities.",
+      "points": [
+        "Founded in Turin in 2026 as a voluntary organisation (ODV).",
+        "Manages music production across the organisation’s musical activities.",
+        "Runs cultural, artistic and social-recreational activities that bring people together."
+      ],
+      "tags": [
+        "Music production",
+        "Arts & culture",
+        "Community",
+        "Non-profit"
+      ]
+    },
+    {
+      "title": "Property Development",
+      "category": "Real estate · Nigeria & Italy",
+      "icon": "property",
+      "status": "In development",
+      "active": false,
+      "featured": false,
+      "summary": "Developing places in Nigeria and Italy that serve the people who live, work and gather in them.",
+      "points": [],
+      "tags": [
+        "Real estate",
+        "Development",
+        "Investment",
+        "Cross-border"
+      ]
+    },
+    {
+      "title": "Bloomberg Finance Fundamentals & Market Concepts",
+      "category": "Professional certification · Markets",
+      "icon": "bloomberg",
+      "status": "Completed",
+      "active": false,
+      "featured": false,
+      "summary": "Two Bloomberg certificate courses covering how investing, asset classes and financial markets work.",
+      "points": [
+        "Both Bloomberg certificates completed in 2026: Finance Fundamentals and Market Concepts.",
+        "Covers the four market lenses an analyst reads daily: economic indicators, currencies, fixed income and equities.",
+        "Builds on Bloomberg Terminal trading competition experience and the Excel and Power BI certifications."
+      ],
+      "tags": [
+        "Financial markets",
+        "Data analysis",
+        "Equities",
+        "Bloomberg"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,94 @@
+---
+import global from '../content/global.json';
+import { DOTS } from '../data/mapDots';
+import { coord, project } from '../lib/format';
+
+type Side = 'left' | 'right' | 'below-left';
+const label = (x: number, y: number, side: string, off: number) => {
+  const s = side as Side;
+  if (s === 'left') return { x: (x - off).toFixed(2), y: (y + 0.7).toFixed(2), 'text-anchor': 'end' };
+  if (s === 'below-left') return { x: (x - off).toFixed(2), y: (y + 2).toFixed(2), 'text-anchor': 'end' };
+  return { x: (x + off).toFixed(2), y: (y + 0.2).toFixed(2) };
+};
+
+const hub = global.cities.find((c) => c.current) ?? global.cities[0];
+const [hx, hy] = project(hub.lat, hub.lon);
+const arcTargets = [...global.network, ...global.cities.filter((c) => c.inNetwork && c !== hub)];
+const arcs = arcTargets.map((n) => {
+  const [x, y] = project(n.lat, n.lon);
+  const dx = x - hx, dy = y - hy, d = Math.hypot(dx, dy);
+  const cx = (hx + x) / 2 + (-dy / d) * d * 0.22;
+  const cy = (hy + y) / 2 + (dx / d) * d * 0.22;
+  return `M${hx} ${hy} Q${cx.toFixed(2)} ${cy.toFixed(2)} ${x} ${y}`;
+});
+const mapLabel = `Map of Europe, West Africa and the Middle East marking ${global.cities.map((c) => c.name).join(', ')}, with the NOX PRIVÉ network cities`;
+---
+<section class="sec" id="global" aria-labelledby="global-h">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <p class="eyebrow">Global perspective</p>
+      <h2 class="display h2" id="global-h">Global Footprint<span class="dot">.</span></h2>
+      <p class="lede">{global.intro}</p>
+    </div>
+    <div class="global-grid">
+      <div class="card map-card rv">
+        <div class="map-head">
+          <span class="mono">Cities &amp; network</span>
+          <div class="toggles">
+            <button class="tog" id="togLived" aria-pressed="true"><i></i>Lived</button>
+            <button class="tog net" id="togNet" aria-pressed="false"><i></i>NOX PRIVÉ network</button>
+          </div>
+        </div>
+        <div class="map" id="map">
+          <svg viewBox="-1 -1 67.5 64" role="img" aria-label={mapLabel}>
+            <path class="land" d={DOTS} />
+            <g class="arcs">{arcs.map((d) => <path d={d} />)}</g>
+            <g>
+              {global.network.map((n) => {
+                const [x, y] = project(n.lat, n.lon);
+                return <g class="m-net"><circle cx={x} cy={y} r=".62" /><text {...label(x, y, n.labelSide, 1.3)}>{n.name}</text></g>;
+              })}
+            </g>
+            <g id="livedMarks">
+              {global.cities.map((c) => {
+                const [x, y] = project(c.lat, c.lon);
+                return (
+                  <g class:list={['m-lived', { focus: c.current }]} data-code={c.code} tabindex="0" role="button" aria-label={`${c.name}, ${c.country}`}>
+                    <circle class="halo" cx={x} cy={y} r="1.2" />
+                    <circle class="core" cx={x} cy={y} r=".95" />
+                    <text {...label(x, y, c.labelSide, 1.6)}>{c.name}</text>
+                  </g>
+                );
+              })}
+            </g>
+          </svg>
+        </div>
+        <div class="map-foot"><span class="mono">Equirectangular · 20° W to 60° E</span><span class="mono">Tap a city</span></div>
+      </div>
+
+      <div>
+        <p class="eyebrow" style="margin-bottom:18px">Life journey</p>
+        <ul class="cities">
+          {global.cities.map((c) => (
+            <li class="rv">
+              <button class:list={['city', { focus: c.current }]} data-code={c.code}>
+                <span class="city-code">{c.code}</span>
+                <span><b>{c.name}{c.current && <span class="now">Now</span>}</b><small>{c.country} · {c.region}</small></span>
+                <span class="coord">{coord(c.lat, 'N', 'S')}<br />{coord(c.lon, 'E', 'W')}</span>
+              </button>
+            </li>
+          ))}
+        </ul>
+        <p class="eyebrow sub-eyebrow">Linguistic proficiency</p>
+        <div class="card lang-card rv">
+          <div class="langs">
+            {global.languages.map((l) => (
+              <div class="lang"><div class="lang-row"><b>{l.name}</b><span>{l.level}</span></div><div class="bar"><i></i></div></div>
+            ))}
+          </div>
+          <p class="lang-note">{global.languageNote}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

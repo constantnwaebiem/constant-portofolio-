@@ -1,0 +1,42 @@
+---
+import site from '../content/site.json';
+
+const links = [
+  ['impact', 'Impact'],
+  ['experience', 'Experience'],
+  ['projects', 'Projects'],
+  ['global', 'Global'],
+  ['education', 'Education'],
+];
+const menu = [['home', 'Home'], ...links, ['contact', 'Contact']];
+---
+<div class="progress" id="progress" aria-hidden="true"></div>
+
+<header class="nav">
+  <div class="wrap">
+    <a class="logo" href="/#home" aria-label={`${site.name}, home`}>cn<span class="dot">.</span></a>
+    <ul class="nav-links" id="navLinks">
+      {links.map(([id, label]) => <li><a href={`/#${id}`} data-sec={id}>{label}</a></li>)}
+    </ul>
+    <a class="btn btn--ink nav-cta" href="/#contact">Let’s Connect</a>
+    <button class="burger" id="burger" aria-label="Open menu" aria-controls="menu" aria-expanded="false"><span></span></button>
+  </div>
+</header>
+
+<div class="menu" id="menu" role="dialog" aria-modal="true" aria-label="Site menu">
+  <div class="wrap menu-top">
+    <a class="logo" href="/#home">cn<span class="dot">.</span></a>
+    <button class="menu-close" id="menuClose" aria-label="Close menu"></button>
+  </div>
+  <nav class="wrap" aria-label="Sections">
+    <ol>
+      {menu.map(([id, label], i) => (
+        <li><a href={`/#${id}`} style={`transition-delay:${60 + i * 40}ms`}>{label}<small>{id === 'contact' ? 'Say hello' : ''}</small></a></li>
+      ))}
+    </ol>
+  </nav>
+  <div class="wrap menu-foot">
+    <span>{site.location.split(',')[0]}, UK</span>
+    <span>{site.email}</span>
+  </div>
+</div>

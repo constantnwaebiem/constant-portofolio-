@@ -1,0 +1,81 @@
+---
+import '@fontsource-variable/archivo/standard.css';
+import '@fontsource-variable/instrument-sans';
+import '@fontsource/instrument-serif/400.css';
+import '@fontsource/instrument-serif/400-italic.css';
+import '@fontsource/dm-mono/400.css';
+import '../styles/global.css';
+import site from '../content/site.json';
+import education from '../content/education.json';
+import global from '../content/global.json';
+import experience from '../content/experience.json';
+
+interface Props {
+  title?: string;
+  description?: string;
+  noindex?: boolean;
+}
+const { title = site.seoTitle, description = site.seoDescription, noindex = false } = Astro.props;
+const canonical = new URL(Astro.url.pathname, Astro.site);
+const ogImage = new URL('/og.jpg', Astro.site);
+
+// Structured data so search engines understand who this page is about.
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Person',
+  name: site.name,
+  jobTitle: site.jobTitle,
+  url: Astro.site?.href,
+  image: ogImage.href,
+  email: `mailto:${site.email}`,
+  address: { '@type': 'PostalAddress', addressLocality: 'London', addressCountry: 'GB' },
+  alumniOf: education.schools.map((s) => ({ '@type': 'EducationalOrganization', name: s.title.startsWith('BSc') ? s.organisation : s.title })),
+  knowsLanguage: global.languages.map((l) => l.name),
+  worksFor: experience.roles.filter((r) => r.current).map((r) => ({ '@type': 'Organization', name: r.organisation })),
+  sameAs: [site.linkedin, site.instagram].filter(Boolean),
+};
+---
+<!doctype html>
+<html lang="en-GB">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+    {noindex && <meta name="robots" content="noindex" />}
+    <meta name="theme-color" content="#F7F8F9" />
+    <meta name="author" content={site.name} />
+
+    <meta property="og:type" content="profile" />
+    <meta property="og:site_name" content={site.name} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:locale" content="en_GB" />
+    <meta property="profile:first_name" content={site.firstName} />
+    <meta property="profile:last_name" content={site.lastName} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImage} />
+
+    <link rel="icon" href="/favicon.ico" sizes="32x32" />
+    <link rel="icon" href="/icon-192.png" type="image/png" sizes="192x192" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="sitemap" href="/sitemap-index.xml" />
+
+    <script is:inline>document.documentElement.classList.add('js');</script>
+    <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+  </head>
+  <body>
+    <slot />
+    <script>
+      import '../scripts/site.ts';
+    </script>
+  </body>
+</html>

@@ -1,0 +1,28 @@
+---
+import site from '../content/site.json';
+import { ICONS } from '../lib/icons';
+const tel = site.phone.replace(/[^+\d]/g, '');
+const year = new Date().getFullYear();
+---
+<section class="contact" id="contact" aria-labelledby="contact-h">
+  <div class="wrap">
+    <p class="eyebrow">Get in touch</p>
+    <h2 class="display h2" id="contact-h">{site.contactHeadline} <span class="serif">{site.contactAccent}</span></h2>
+    <p class="lede">{site.contactText}</p>
+    <div class="btns">
+      <a class="btn btn--plat" href={`mailto:${site.email}`}>Send an Email <Fragment set:html={ICONS.arrow} /></a>
+      {site.linkedin && <a class="btn" href={site.linkedin} target="_blank" rel="noopener me">Connect on LinkedIn</a>}
+      {site.instagram && <a class="btn" href={site.instagram} target="_blank" rel="noopener me">Instagram</a>}
+    </div>
+    <dl class="details">
+      <div class="detail"><div><dt>Location</dt><dd>{site.location}</dd></div></div>
+      <div class="detail"><div><dt>Email</dt><dd><a href={`mailto:${site.email}`}>{site.email}</a></dd></div><button class="copy" data-copy={site.email}>Copy</button></div>
+      <div class="detail"><div><dt>Phone</dt><dd><a href={`tel:${tel}`}>{site.phone}</a></dd></div><button class="copy" data-copy={tel}>Copy</button></div>
+    </dl>
+    <footer class="foot">
+      <span class="logo">cn<span class="dot">.</span></span>
+      <span>© {year} {site.name}</span>
+      <a href="#home">Back to top ↑</a>
+    </footer>
+  </div>
+</section>

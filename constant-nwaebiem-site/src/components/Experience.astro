@@ -1,0 +1,38 @@
+---
+import experience from '../content/experience.json';
+import { ICONS } from '../lib/icons';
+---
+<section class="sec" id="experience" aria-labelledby="xp-h">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <p class="eyebrow">Career journey</p>
+      <h2 class="display h2" id="xp-h">Experience<span class="dot">.</span></h2>
+    </div>
+    <ul class="xp">
+      {experience.roles.map((r, i) => {
+        const open = i === 0;
+        return (
+          <li class:list={['xp-item rv', { current: r.current, open }]}>
+            <button class="xp-btn" aria-expanded={open ? 'true' : 'false'} aria-controls={`xp-${i}`}>
+              <span class="xp-dot" aria-hidden="true"></span>
+              <span>
+                <span class="xp-title">{r.title}</span>
+                <span class="xp-org">{r.organisation} · {r.location}</span>
+              </span>
+              <span class="xp-chev" set:html={ICONS.chev} />
+            </button>
+            <div class="xp-panel" id={`xp-${i}`}>
+              <div class="xp-inner">
+                <div class="xp-body">
+                  <div class="xp-when">{r.dates}</div>
+                  <ul class="pts">{r.points.map((p) => <li>{p}</li>)}</ul>
+                  {r.tags.length > 0 && <ul class="chips">{r.tags.map((t) => <li class="chip">{t}</li>)}</ul>}
+                </div>
+              </div>
+            </div>
+          </li>
+        );
+      })}
+    </ul>
+  </div>
+</section>

@@ -1,0 +1,113 @@
+{
+  "intro": "Three countries, five cities and three languages. Each place sharpened how I read people, markets and rooms.",
+  "cities": [
+    {
+      "code": "LDN",
+      "name": "London",
+      "country": "United Kingdom",
+      "region": "Current base",
+      "lat": 51.507,
+      "lon": -0.128,
+      "current": true,
+      "labelSide": "right",
+      "inNetwork": true
+    },
+    {
+      "code": "BRS",
+      "name": "Bristol",
+      "country": "United Kingdom",
+      "region": "South West England",
+      "lat": 51.454,
+      "lon": -2.588,
+      "current": false,
+      "labelSide": "left",
+      "inNetwork": false
+    },
+    {
+      "code": "MIL",
+      "name": "Milan",
+      "country": "Italy",
+      "region": "Lombardy",
+      "lat": 45.464,
+      "lon": 9.19,
+      "current": false,
+      "labelSide": "right",
+      "inNetwork": true
+    },
+    {
+      "code": "TRN",
+      "name": "Turin",
+      "country": "Italy",
+      "region": "Piedmont",
+      "lat": 45.07,
+      "lon": 7.687,
+      "current": false,
+      "labelSide": "below-left",
+      "inNetwork": false
+    },
+    {
+      "code": "ENU",
+      "name": "Enugu",
+      "country": "Nigeria",
+      "region": "South East",
+      "lat": 6.45,
+      "lon": 7.5,
+      "current": false,
+      "labelSide": "right",
+      "inNetwork": false
+    }
+  ],
+  "network": [
+    {
+      "name": "Paris",
+      "lat": 48.857,
+      "lon": 2.352,
+      "labelSide": "right"
+    },
+    {
+      "name": "Barcelona",
+      "lat": 41.387,
+      "lon": 2.17,
+      "labelSide": "right"
+    },
+    {
+      "name": "Marbella",
+      "lat": 36.51,
+      "lon": -4.883,
+      "labelSide": "left"
+    },
+    {
+      "name": "Mykonos",
+      "lat": 37.446,
+      "lon": 25.329,
+      "labelSide": "right"
+    },
+    {
+      "name": "Dubai",
+      "lat": 25.204,
+      "lon": 55.27,
+      "labelSide": "left"
+    },
+    {
+      "name": "Lagos",
+      "lat": 6.524,
+      "lon": 3.379,
+      "labelSide": "left"
+    }
+  ],
+  "languages": [
+    {
+      "name": "English",
+      "level": "Fluent"
+    },
+    {
+      "name": "Italian",
+      "level": "Fluent"
+    },
+    {
+      "name": "Igbo",
+      "level": "Fluent"
+    }
+  ],
+  "languageNote": "Fluency built through living, studying and working across Nigeria, Italy and the United Kingdom."
+}
